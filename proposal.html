@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Our Dreams Together 💫</title>
+  <title>Just One Question 💗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -12,43 +12,65 @@
       background: #ffc0cb;
       color: #ffffff;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     h1 {
-      margin-top: 60px;
-      font-size: 3.5em;
-      text-shadow: 0 0 10px rgba(255,255,255,0.7);
+      margin-top: 80px;
+      font-size: 3.2em;
+      text-shadow: 0 0 12px rgba(255,255,255,0.7);
     }
 
-    .message {
-      max-width: 900px;
-      margin: 40px auto;
-      font-size: 1.4em;
+    p {
+      max-width: 800px;
+      margin: 30px auto;
+      font-size: 1.5em;
       line-height: 2;
-      padding: 35px;
-      background: rgba(255, 255, 255, 0.25);
+      padding: 30px;
+      background: rgba(255,255,255,0.25);
       border-radius: 30px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+      box-shadow: 0 0 25px rgba(255,105,180,0.6);
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    button {
+      font-size: 1.5em;
+      padding: 14px 32px;
+      margin: 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #ff69b4;
+      color: white;
+      box-shadow: 0 0 15px rgba(255,105,180,0.8);
     }
 
-    li {
-      margin: 20px 0;
-      font-size: 1.2em;
+    button:hover {
+      transform: scale(1.05);
     }
 
-    .back-link {
+    #hippo {
+      font-size: 120px; /* Made bigger for emphasis */
+      margin-top: 40px;
+      display: none;
+      animation: dance 1s infinite ease-in-out; /* Smoother, longer dance */
+    }
+
+    @keyframes dance {
+      0% { transform: rotate(-15deg) translateY(0) scale(1); }
+      25% { transform: rotate(15deg) translateY(-20px) scale(1.1); }
+      50% { transform: rotate(-15deg) translateY(0) scale(1); }
+      75% { transform: rotate(15deg) translateY(-20px) scale(1.1); }
+      100% { transform: rotate(0deg) translateY(0) scale(1); }
+    }
+
+    #secretLink {
+      display: none;
       margin-top: 50px;
       font-size: 1.3em;
+      opacity: 0.9;
     }
 
-    .back-link a {
+    #secretLink a {
       color: #fff;
       background: #ff69b4;
       padding: 12px 26px;
@@ -58,10 +80,9 @@
       box-shadow: 0 0 15px rgba(255,105,180,0.8);
     }
 
-    /* Floating Stars */
-    .star {
+    .rose {
       position: fixed;
-      bottom: -50px;
+      bottom: -40px;
       font-size: 30px;
       animation: floatUp linear infinite;
       pointer-events: none;
@@ -78,9 +99,65 @@
 
 <body>
 
-  <h1>Our Dreams, Shriddhi 💫</h1>
+  <h1>Shriddhi 💖</h1>
 
-  <div class="message">
-    <p>With you by my side, the future feels endless. Here are some dreams I have for us:</p>
-    <ul>
-      <li
+  <p>
+    I didn’t want to ask this loudly.
+    <br><br>
+    I wanted it to be soft,
+    private,
+    and just between us.
+    <br><br>
+    So here it is —
+    <br><br>
+    <strong>Will you be mine?</strong> 💍
+  </p>
+
+  <div>
+    <button onclick="yes()">YES 💖</button>
+    <button onclick="hug()">I need a hug first 🥹</button>
+  </div>
+
+  <div id="hippo">🦛💃🎉</div>
+
+  <!-- SECRET LINK REVEALED AFTER YES -->
+  <div id="secretLink">
+    <p>💕 Since you said yes, here's a little something extra just for you...</p>
+    <a href="memories.html">Tap for our memories 💌</a>
+  </div>
+
+  <!-- BUTTON ACTIONS -->
+  <script>
+    function yes() {
+      document.getElementById("hippo").style.display = "block";
+      startRoses(); // Intensify roses for celebration
+      setTimeout(() => {
+        document.getElementById("secretLink").style.display = "block"; // Reveal link after hippo dances
+      }, 3000); // 3-second delay for the hippo to "perform"
+    }
+
+    function hug() {
+      alert("Sending you the warmest hug 🤗💗");
+    }
+  </script>
+
+  <!-- ROSES -->
+  <script>
+    function startRoses() {
+      setInterval(() => {
+        const rose = document.createElement("div");
+        rose.classList.add("rose");
+        rose.innerHTML = "🌹";
+        rose.style.left = Math.random() * 100 + "vw";
+        rose.style.animationDuration = (3 + Math.random() * 3) + "s"; // Faster for excitement
+        document.body.appendChild(rose);
+
+        setTimeout(() => {
+          rose.remove();
+        }, 8000);
+      }, 250); // More frequent roses
+    }
+  </script>
+
+</body>
+</html>
